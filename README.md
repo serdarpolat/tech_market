@@ -1,6 +1,6 @@
 # tech_market
 
-A new Flutter project.
+<img src="screens/scr1.png" width="360" />
 
 ## Getting Started
 
