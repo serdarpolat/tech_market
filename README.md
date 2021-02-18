@@ -1,6 +1,6 @@
 # tech_market
 
-<img src="screens/scr1.png" width="360" />
+<img src="screens/scr1.jpg" width="360" />
 
 ## Getting Started
 
