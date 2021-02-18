@@ -20,3 +20,60 @@ Widget primaryButton({String title, Function ontap, Color color}) =>
         ),
       ),
     );
+
+Future<dynamic> pushReplace(BuildContext context, {Widget page}) =>
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (context) => page));
+
+Future<dynamic> pushToPage(BuildContext context, {Widget page}) =>
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => page));
+
+Widget skipForNow(BuildContext context) => TextButton(
+      onPressed: () => pushReplace(context, page: Home()),
+      child: Text(
+        "Skip for now",
+        textAlign: TextAlign.center,
+        style: semi18(
+          color: white,
+        ),
+      ),
+    );
+
+Widget textInput({String title}) => Container(
+      width: ww(311),
+      height: hh(62),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            title,
+            style: semi18(color: white),
+          ),
+          Spacer(),
+          Container(
+            width: ww(311),
+            height: hh(35),
+            child: TextField(
+              decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(horizontal: ww(12)),
+                border: InputBorder.none,
+                labelText: title,
+                labelStyle: reg16(color: gray),
+              ),
+            ),
+            decoration: BoxDecoration(
+              border: Border.all(
+                width: 1,
+                color: white,
+              ),
+              borderRadius: BorderRadius.circular(hh(4)),
+            ),
+          ),
+        ],
+      ),
+    );
+
+Widget padding({@required Widget child}) => Padding(
+      padding: EdgeInsets.symmetric(horizontal: ww(16)),
+      child: child,
+    );

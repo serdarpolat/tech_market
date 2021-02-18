@@ -16,11 +16,6 @@ Color success = Color(0xFF2DB57D);
 double hh(double size) => (size * 960) / 812;
 double ww(double size) => (size * 454.73684) / 375;
 
-Widget padding({@required Widget child}) => Padding(
-      padding: EdgeInsets.symmetric(horizontal: ww(16)),
-      child: child,
-    );
-
 TextStyle semi12_ls2({Color color}) => TextStyle(
       fontSize: hh(12),
       fontWeight: FontWeight.w600,

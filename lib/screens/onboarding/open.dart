@@ -63,18 +63,12 @@ class Open extends StatelessWidget {
             ),
             SizedBox(height: hh(72)),
             primaryButton(
-              ontap: () {},
+              ontap: () => pushReplace(context, page: Onboarding()),
               title: "Let's Start",
               color: white,
             ),
             SizedBox(height: hh(72)),
-            Text(
-              "Skip for now",
-              textAlign: TextAlign.center,
-              style: semi18(
-                color: white,
-              ),
-            ),
+            skipForNow(context),
           ],
         ),
       ),
