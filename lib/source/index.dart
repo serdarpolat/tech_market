@@ -11,6 +11,9 @@ export 'package:tech_market/screens/login_register/register.dart';
 
 export 'package:tech_market/screens/home/home.dart';
 export 'package:tech_market/screens/home/main.dart';
+export 'package:tech_market/screens/home/categories.dart';
+export 'package:tech_market/screens/home/category_products.dart';
+
 export 'package:tech_market/screens/search/search.dart';
 export 'package:tech_market/screens/shopping/shopping.dart';
 export 'package:tech_market/screens/profile/profile.dart';

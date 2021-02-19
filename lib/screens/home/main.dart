@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tech_market/source/index.dart';
 
 class Main extends StatefulWidget {
+  final Function openCategories;
+
+  const Main({Key key, this.openCategories}) : super(key: key);
   @override
   _MainState createState() => _MainState();
 }
@@ -101,7 +104,10 @@ class _MainState extends State<Main> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                icons(img: "categories", title: "Categories"),
+                icons(
+                    ontap: widget.openCategories,
+                    img: "categories",
+                    title: "Categories"),
                 icons(img: "favorites", title: "Favorites"),
                 icons(img: "gift", title: "Gifts"),
                 icons(img: "best_selling", title: "Best Selling"),
@@ -194,25 +200,31 @@ Widget categoryItem({String img, String title}) => Container(
       ),
     );
 
-Widget icons({String img, String title}) => Column(
-      children: [
-        Container(
-          width: ww(56),
-          height: ww(56),
-          child: Center(
-            child: Image.asset(
-              "assets/img/icons/$img.png",
-              width: ww(18),
+Widget icons({String img, String title, Function ontap}) => GestureDetector(
+      onTap: ontap,
+      child: Container(
+        color: bg,
+        child: Column(
+          children: [
+            Container(
+              width: ww(56),
+              height: ww(56),
+              child: Center(
+                child: Image.asset(
+                  "assets/img/icons/$img.png",
+                  width: ww(18),
+                ),
+              ),
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                color: blueGray,
+              ),
             ),
-          ),
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: blueGray,
-          ),
+            SizedBox(height: hh(8)),
+            Text(title, style: med14(color: blueText))
+          ],
         ),
-        SizedBox(height: hh(8)),
-        Text(title, style: med14(color: blueText))
-      ],
+      ),
     );
 
 class Dot extends StatelessWidget {

@@ -10,6 +10,9 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   Size get s => MediaQuery.of(context).size;
   PageController pageController = PageController();
+  bool openCategories = false;
+  bool openCatProd = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,15 +24,52 @@ class _HomeState extends State<Home> {
             height: s.height,
             child: Stack(
               children: [
-                //pageList[state.page],
-                PageView.builder(
+                PageView(
                   controller: pageController,
                   onPageChanged: (page) {
                     state.changePage(page);
                   },
-                  itemBuilder: (BuildContext context, int index) {
-                    return pageList[index];
-                  },
+                  children: [
+                    Main(
+                      openCategories: () {
+                        setState(() {
+                          openCategories = !openCategories;
+                        });
+                      },
+                    ),
+                    Search(),
+                    Shopping(),
+                    Profile(),
+                  ],
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 60),
+                  top: openCategories ? 0 : s.height,
+                  left: 0,
+                  child: Categories(
+                    closeCategories: () {
+                      setState(() {
+                        openCategories = !openCategories;
+                      });
+                    },
+                    openCatProducts: () {
+                      setState(() {
+                        openCatProd = !openCatProd;
+                      });
+                    },
+                  ),
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 60),
+                  top: openCatProd ? 0 : s.height,
+                  left: 0,
+                  child: CatagoryProducts(
+                    closeCategoryProducts: () {
+                      setState(() {
+                        openCatProd = !openCatProd;
+                      });
+                    },
+                  ),
                 ),
                 Container(
                   width: s.width,
@@ -51,10 +91,15 @@ class _HomeState extends State<Home> {
                           (index) {
                             return GestureDetector(
                               onTap: () {
+                                setState(() {
+                                  if (openCategories)
+                                    openCategories = !openCategories;
+                                  if (openCatProd) openCatProd = !openCatProd;
+                                });
                                 state.changePage(index);
                                 pageController.animateToPage(
                                   state.page,
-                                  duration: Duration(milliseconds: 360),
+                                  duration: Duration(milliseconds: 240),
                                   curve: Curves.easeInOut,
                                 );
                               },
