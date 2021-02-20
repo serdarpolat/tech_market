@@ -12,6 +12,8 @@ class _HomeState extends State<Home> {
   PageController pageController = PageController();
   bool openCategories = false;
   bool openCatProd = false;
+  bool openSearchItem = false;
+  bool openCheck = false;
 
   @override
   Widget build(BuildContext context) {
@@ -37,10 +39,45 @@ class _HomeState extends State<Home> {
                         });
                       },
                     ),
-                    Search(),
+                    Search(
+                      openSearchProduct: () {
+                        setState(() {
+                          openSearchItem = !openSearchItem;
+                        });
+                      },
+                    ),
                     Shopping(),
                     Profile(),
                   ],
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 60),
+                  top: openSearchItem ? 0 : s.height,
+                  left: 0,
+                  child: SearchedItem(
+                    openCheckOut: () {
+                      setState(() {
+                        openCheck = !openCheck;
+                      });
+                    },
+                    closeSearchedItem: () {
+                      setState(() {
+                        openSearchItem = !openSearchItem;
+                      });
+                    },
+                  ),
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 60),
+                  top: openCheck ? 0 : s.height,
+                  left: 0,
+                  child: CheckOut(
+                    closeCheckout: () {
+                      setState(() {
+                        openCheck = !openCheck;
+                      });
+                    },
+                  ),
                 ),
                 AnimatedPositioned(
                   duration: Duration(milliseconds: 60),
@@ -95,6 +132,9 @@ class _HomeState extends State<Home> {
                                   if (openCategories)
                                     openCategories = !openCategories;
                                   if (openCatProd) openCatProd = !openCatProd;
+                                  if (openSearchItem)
+                                    openSearchItem = !openSearchItem;
+                                  if (openCheck) openCheck = !openCheck;
                                 });
                                 state.changePage(index);
                                 pageController.animateToPage(
