@@ -23,3 +23,5 @@ export 'package:tech_market/screens/shopping/order_validate.dart';
 export 'package:tech_market/screens/shopping/tracking.dart';
 
 export 'package:tech_market/screens/profile/profile.dart';
+export 'package:tech_market/screens/profile/account_information.dart';
+export 'package:tech_market/screens/profile/email_settings.dart';

@@ -16,6 +16,8 @@ class _HomeState extends State<Home> {
   bool openCheck = false;
   bool openOrderValidate = false;
   bool openTracking = false;
+  bool openAccountInfo = false;
+  bool openEmailSettings = false;
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +66,43 @@ class _HomeState extends State<Home> {
                         });
                       },
                     ),
-                    Profile(),
+                    Profile(
+                      openAccountInformation: () {
+                        setState(() {
+                          openAccountInfo = !openAccountInfo;
+                        });
+                      },
+                    ),
                   ],
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 60),
+                  top: openAccountInfo ? 0 : s.height,
+                  left: 0,
+                  child: AccountInformation(
+                    closeAccountInfo: () {
+                      setState(() {
+                        openAccountInfo = !openAccountInfo;
+                      });
+                    },
+                    openEmailSetting: () {
+                      setState(() {
+                        openEmailSettings = !openEmailSettings;
+                      });
+                    },
+                  ),
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 60),
+                  top: openEmailSettings ? 0 : s.height,
+                  left: 0,
+                  child: EmailSettings(
+                    closeEmailSettings: () {
+                      setState(() {
+                        openEmailSettings = !openEmailSettings;
+                      });
+                    },
+                  ),
                 ),
                 AnimatedPositioned(
                   duration: Duration(milliseconds: 60),
@@ -167,6 +204,10 @@ class _HomeState extends State<Home> {
                                   if (openCheck) openCheck = !openCheck;
                                   if (openTracking)
                                     openTracking = !openTracking;
+                                  if (openAccountInfo)
+                                    openAccountInfo = !openAccountInfo;
+                                  if (openEmailSettings)
+                                    openEmailSettings = !openEmailSettings;
                                 });
                                 state.changePage(index);
                                 pageController.animateToPage(
