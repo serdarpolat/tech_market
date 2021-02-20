@@ -19,4 +19,7 @@ export 'package:tech_market/screens/search/searched_item.dart';
 export 'package:tech_market/screens/search/checkout.dart';
 
 export 'package:tech_market/screens/shopping/shopping.dart';
+export 'package:tech_market/screens/shopping/order_validate.dart';
+export 'package:tech_market/screens/shopping/tracking.dart';
+
 export 'package:tech_market/screens/profile/profile.dart';

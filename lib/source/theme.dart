@@ -47,6 +47,11 @@ TextStyle reg14({Color color}) => TextStyle(
       fontWeight: FontWeight.w500,
     );
 
+TextStyle reg12({Color color}) => TextStyle(
+      color: color,
+      fontSize: 12,
+    );
+
 TextStyle bold24({Color color}) => TextStyle(
       fontSize: hh(24),
       color: color,

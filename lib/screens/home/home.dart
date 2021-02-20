@@ -14,6 +14,8 @@ class _HomeState extends State<Home> {
   bool openCatProd = false;
   bool openSearchItem = false;
   bool openCheck = false;
+  bool openOrderValidate = false;
+  bool openTracking = false;
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +48,36 @@ class _HomeState extends State<Home> {
                         });
                       },
                     ),
-                    Shopping(),
+                    Shopping(
+                      orderValidate: () async {
+                        setState(() {
+                          openOrderValidate = !openOrderValidate;
+                        });
+                        Future.delayed(const Duration(milliseconds: 4000), () {
+                          setState(() {
+                            openOrderValidate = !openOrderValidate;
+                          });
+                        }).whenComplete(() {
+                          setState(() {
+                            openTracking = !openTracking;
+                          });
+                        });
+                      },
+                    ),
                     Profile(),
                   ],
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 60),
+                  top: openTracking ? 0 : s.height,
+                  left: 0,
+                  child: Tracking(
+                    closeTracking: () {
+                      setState(() {
+                        openTracking = !openTracking;
+                      });
+                    },
+                  ),
                 ),
                 AnimatedPositioned(
                   duration: Duration(milliseconds: 60),
@@ -108,6 +137,7 @@ class _HomeState extends State<Home> {
                     },
                   ),
                 ),
+                //* statusbar background
                 Container(
                   width: s.width,
                   height: MediaQuery.of(context).padding.top,
@@ -135,6 +165,8 @@ class _HomeState extends State<Home> {
                                   if (openSearchItem)
                                     openSearchItem = !openSearchItem;
                                   if (openCheck) openCheck = !openCheck;
+                                  if (openTracking)
+                                    openTracking = !openTracking;
                                 });
                                 state.changePage(index);
                                 pageController.animateToPage(
@@ -153,6 +185,12 @@ class _HomeState extends State<Home> {
                       ),
                     ),
                   ),
+                ),
+                AnimatedPositioned(
+                  duration: Duration(milliseconds: 60),
+                  top: openOrderValidate ? 0 : s.height,
+                  left: 0,
+                  child: OrderValidate(),
                 ),
               ],
             ),
