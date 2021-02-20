@@ -1,6 +1,6 @@
 # tech_market
 
-<img src="screens/scr1.jpg" width="360" /> <img src="screens/scr2.jpg" width="360" /> <img src="screens/scr3.jpg" width="360" /> <img src="screens/scr4.jpg" width="360" /> <img src="screens/scr5.jpg" width="360" /> <img src="screens/scr6.jpg" width="360" /> <img src="screens/scr7.jpg" width="360" /> <img src="screens/scr8.jpg" width="360" /> <img src="screens/scr9.jpg" width="360" /> <img src="screens/scr10.jpg" width="360" /> <img src="screens/scr11.jpg" width="360" /> <img src="screens/scr12.jpg" width="360" /> <img src="screens/scr13.jpg" width="360" />
+<img src="screens/scr1.jpg" width="360" /> <img src="screens/scr2.jpg" width="360" /> <img src="screens/scr3.jpg" width="360" /> <img src="screens/scr4.jpg" width="360" /> <img src="screens/scr5.jpg" width="360" /> <img src="screens/scr6.jpg" width="360" /> <img src="screens/scr7.jpg" width="360" /> <img src="screens/scr8.jpg" width="360" /> <img src="screens/scr9.jpg" width="360" /> <img src="screens/scr10.jpg" width="360" /> <img src="screens/scr11.jpg" width="360" /> <img src="screens/scr12.jpg" width="360" /> <img src="screens/scr13.jpg" width="360" /> <img src="screens/scr14.jpg" width="360" /> <img src="screens/scr15.jpg" width="360" /> <img src="screens/scr16.jpg" width="360" />
 
 ## Getting Started
 
